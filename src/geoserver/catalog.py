@@ -687,11 +687,9 @@ class Catalog(object):
 
         self._cache.clear()
         time = 0
-        while time < 120 and name not in [
-             store.name for store in self.get_stores(workspaces=[workspace])
-        ]:
+        while time < 120 and name not in [store.name for store in self.get_stores(workspaces=[workspace])]:
             sleep(.5)
-            time ++ .5
+            time += .5
         return self.get_resources(names=layer_name, workspaces=[workspace])[0]
 
     def add_granule(self, data, store, workspace=None):
