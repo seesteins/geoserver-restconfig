@@ -687,8 +687,8 @@ class Catalog(object):
 
         self._cache.clear()
         time = 0
-        while name not in [
-             store.name for store in self.get_stores(workspaces=[workspace]) and time < 120
+        while time < 120 and name not in [
+             store.name for store in self.get_stores(workspaces=[workspace])
         ]:
             sleep(.5)
             time ++ .5
